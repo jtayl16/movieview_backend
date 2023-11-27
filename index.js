@@ -8,6 +8,9 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+// server is deployed to Render, so can't use a hardcoded port
+const PORT = process.env.PORT;
+
 http.createServer((req,res) => {
     console.log(req.url);
     if(req.url === '/') {   // home page
@@ -36,4 +39,4 @@ http.createServer((req,res) => {
         res.writeHead(404, {'Content-Type':'text/html'})
         res.end("<h1> 404'd </h1>");
     }
-}).listen(4133, ()=>console.log("Server running"));
+}).listen(PORT, ()=>console.log("Server running"));
