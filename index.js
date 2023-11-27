@@ -39,4 +39,4 @@ http.createServer((req,res) => {
         res.writeHead(404, {'Content-Type':'text/html'})
         res.end("<h1> 404'd </h1>");
     }
-}).listen(PORT, ()=>console.log("Server running"));
+}).listen(PORT, ()=>console.log("Server running on port ${PORT}"));
