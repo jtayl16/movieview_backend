@@ -31,7 +31,10 @@ http.createServer((req,res) => {
     else if(req.url === '/api') {
         fs.readFile(path.join(__dirname, 'public', 'db.json'), (err,content)=>{
             if(err) throw err;
-            res.writeHead(200, {'Content-Type':'application/json'})
+            res.writeHead(200, {
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin': '*'
+            })
             res.end(content)
         })
     }
