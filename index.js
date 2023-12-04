@@ -2,16 +2,15 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// server is deployed to Render, so can't use a hardcoded port
+// Server is deployed to Render, so cannot use hardcoded port
 const PORT = process.env.PORT;
-
+// Client instance for MongoDB query
 const {MongoClient} = require('mongodb')
 
-async function getData(client){    // retrieve data, convert to array, convert array into JSON format
+async function getData(client){    // Retrieve data, convert data => array => JSON
     const cursor = client.db("movies").collection("moviedetails").find({});
     const results = await cursor.toArray();
     const js = JSON.stringify(results);
-    //console.log(js);
     return js
 }
 
@@ -20,13 +19,13 @@ async function main(){
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
      * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
      */
+    // In a normal scenario, URI should be hidden; for simplicity, it is visible
     const uri = "mongodb+srv://jtayl:Drowssap1@cluster0.z25ivv7.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
 
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-
         // Make the appropriate DB calls
         mongo_json = await getData(client);
     } catch (e) {
@@ -39,8 +38,7 @@ async function main(){
 
 http.createServer((req,res) => {
     console.log(req.url);
-    if(req.url === '/') {   // home page
-        // readFile(current directory, folder, file)
+    if(req.url === '/') {
         fs.readFile(path.join(__dirname, 'public', 'index.html'), (err,content)=>{
             if(err) throw err;
             res.writeHead(200, {'Content-Type':'text/html'})
@@ -55,7 +53,7 @@ http.createServer((req,res) => {
         })
     }
     else if(req.url === '/api') {
-        // grab from mongodb
+        // Get JSON from MongoDB query
         try {
             content = main();
         } catch (e) {
@@ -67,18 +65,9 @@ http.createServer((req,res) => {
             })
             res.end(content)
         }
-        
-        /**fs.readFile(path.join(__dirname, 'public', 'db.json'), (err,content)=>{
-            if(err) throw err;
-            res.writeHead(200, {
-                'Content-Type':'application/json',
-                'Access-Control-Allow-Origin': '*'
-            })
-            res.end(content)
-        }) */
     }
     else {
         res.writeHead(404, {'Content-Type':'text/html'})
         res.end("<h1> 404'd </h1>");
     }
-}).listen(PORT, ()=>console.log('Server running on port ${PORT}'));
+}).listen(PORT, ()=>console.log("Server running on port " + PORT));
