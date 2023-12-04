@@ -54,14 +54,14 @@ http.createServer((req,res) => {
         })
     }
     else if(req.url === '/api') {
-        // Get JSON from MongoDB query
-        try {
-            let content = main();
+        // Get JSON from async MongoDB query
+        main().then(ct => {
+            let content = ct;
             res.writeHead(200, {'Content-Type':'application/json'})
             res.end(content)
-        } catch (e) {
-            console.log(e);
-        }
+        }, (error) => {
+            console.log(error);
+        })
     }
     else {
         res.writeHead(404, {'Content-Type':'text/html'})
