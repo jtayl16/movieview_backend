@@ -58,7 +58,7 @@ http.createServer((req,res) => {
         // getting closer; current result is unformatted and can't be read by VueJS
         main().then(ct => {
             //let content = ct;
-            let content = JSON.stringify(ct);
+            let content = JSON.parse(JSON.stringify(ct))
             res.writeHead(200, {'Content-Type':'application/json'})
             res.end(content)
         }, (error) => {
