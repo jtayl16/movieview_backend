@@ -10,9 +10,8 @@ const {MongoClient} = require('mongodb')
 async function getData(client){    // Retrieve data, convert data => array => JSON
     const cursor = client.db("movies").collection("moviedetails").find({});
     const results = await cursor.toArray();
-    //const js = JSON.stringify(results);
-    //return js
-    return results
+    const js = JSON.stringify(results);
+    return js;
 }
 
 async function main(){
@@ -23,18 +22,19 @@ async function main(){
     // In a normal scenario, URI should be hidden; for simplicity, it is visible
     const uri = "mongodb+srv://jtayl:Drowssap1@cluster0.z25ivv7.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
+    let mongo_json;
 
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-        // Make the appropriate DB calls
         mongo_json = await getData(client);
+        // Make the appropriate DB calls
     } catch (e) {
         console.error(e);
     } finally {
         await client.close();
     }
-    return mongo_json
+    return mongo_json;
 }
 
 http.createServer((req,res) => {
@@ -56,18 +56,11 @@ http.createServer((req,res) => {
     else if(req.url === '/api') {
         // Get JSON from MongoDB query
         try {
-            content = main();
-            fs.writeFile(path.join(__dirname, 'public', 'db2.json'))
+            let content = main();
+            res.writeHead(200, {'Content-Type':'application/json'})
+            res.end(content)
         } catch (e) {
             console.log(e);
-        } finally {
-            //res.writeHead(200, {'Content-Type':'application/json'})
-            //res.end(content)
-            fs.readFile(path.join(__dirname, 'public', 'db2.json'), (err,content)=>{
-                if(err) throw err;
-                res.writeHead(200, {'Content-Type':'application/json'})
-                res.end(content);
-            })
         }
     }
     else {
