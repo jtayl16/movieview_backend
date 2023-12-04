@@ -55,8 +55,10 @@ http.createServer((req,res) => {
     }
     else if(req.url === '/api') {
         // Get JSON from async MongoDB query
+        // getting closer; current result is unformatted and can't be read by VueJS
         main().then(ct => {
-            let content = ct;
+            //let content = ct;
+            let content = JSON.stringify(ct);
             res.writeHead(200, {'Content-Type':'application/json'})
             res.end(content)
         }, (error) => {
