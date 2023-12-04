@@ -10,8 +10,9 @@ const {MongoClient} = require('mongodb')
 async function getData(client){    // Retrieve data, convert data => array => JSON
     const cursor = client.db("movies").collection("moviedetails").find({});
     const results = await cursor.toArray();
-    const js = JSON.stringify(results);
-    return js
+    //const js = JSON.stringify(results);
+    //return js
+    return results
 }
 
 async function main(){
@@ -56,14 +57,17 @@ http.createServer((req,res) => {
         // Get JSON from MongoDB query
         try {
             content = main();
+            fs.writeFile(path.join(__dirname, 'public', 'db2.json'))
         } catch (e) {
             console.log(e);
         } finally {
-            res.writeHead(200, {
-                'Content-Type':'application/json',
-                'Access-Control-Allow-Origin': '*'
+            //res.writeHead(200, {'Content-Type':'application/json'})
+            //res.end(content)
+            fs.readFile(path.join(__dirname, 'public', 'db2.json'), (err,content)=>{
+                if(err) throw err;
+                res.writeHead(200, {'Content-Type':'application/json'})
+                res.end(content);
             })
-            res.end(content)
         }
     }
     else {
