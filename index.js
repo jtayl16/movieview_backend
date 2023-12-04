@@ -10,8 +10,8 @@ const {MongoClient} = require('mongodb')
 async function getData(client){    // Retrieve data, convert data => array => JSON
     const cursor = client.db("movies").collection("moviedetails").find({});
     const results = await cursor.toArray();
-    const js = JSON.stringify(results);
-    return js;
+    //const js = JSON.stringify(results);
+    return results;
 }
 
 async function main(){
@@ -57,8 +57,7 @@ http.createServer((req,res) => {
         // Get JSON from async MongoDB query
         // getting closer; current result is unformatted and can't be read by VueJS
         main().then(ct => {
-            //let content = ct;
-            let content = JSON.parse(JSON.stringify(ct))
+            let content = JSON.parse(ct);
             res.writeHead(200, {'Content-Type':'application/json'})
             res.end(content)
         }, (error) => {
