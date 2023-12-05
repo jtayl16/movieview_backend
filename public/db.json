@@ -1,4 +1,4 @@
-{"movies": [{
+[{
   "id": 1,
   "title": "Halloween",
   "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wijlZ3HaYMvlDTPqJoTCWKFkCPU.jpg",
@@ -47,4 +47,4 @@
   "year": 2014,
   "metascore": 68,
   "MPAArating": "R"
-}]}
+}]
