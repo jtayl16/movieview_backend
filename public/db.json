@@ -1,47 +1,50 @@
-[
-  {
-    "id": 1,
-    "title": "Halloween",
-    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wijlZ3HaYMvlDTPqJoTCWKFkCPU.jpg",
-    "tagline": "The night he came home!",
-    "overview": "Fifteen years after murdering his sister on Halloween Night 1963, Michael Myers escapes from a mental hospital and returns to the small town of Haddonfield, Illinois to kill again.",
-    "year": 1978,
-    "metascore": 87
-  },
-  {
-    "id": 2,
-    "title": "The Lego Movie",
-    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9klB7qKC9aCeGyyM4uU5hSA6xDV.jpg",
-    "tagline": "The story of a nobody who saved everybody.",
-    "overview": "An ordinary Lego mini-figure, mistakenly thought to be the extraordinary MasterBuilder, is recruited to join a quest to stop an evil Lego tyrant from conquering the universe.",
-    "year": 2014,
-    "metascore": 83
-  },
-  {
-    "id": 3,
-    "title": "Oppenheimer",
-    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-    "tagline": "The world forever changes.",
-    "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
-    "year": 2023,
-    "metascore": 88
-  },
-  {
-    "id": 4,
-    "title": "Fight Club",
-    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
-    "tagline": "Mischief. Mayhem. Soap.",
-    "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
-    "year": 1999,
-    "metascore": 67
-  },
-  {
-    "id": 5,
-    "title": "John Wick",
-    "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
-    "tagline": "Don't set him off.",
-    "overview": "Ex-hitman John Wick comes out of retirement to track down the gangsters that took everything from him.",
-    "year": 2014,
-    "metascore": 68
-  }
-]
+{"movies": [{
+  "id": 1,
+  "title": "Halloween",
+  "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wijlZ3HaYMvlDTPqJoTCWKFkCPU.jpg",
+  "tagline": "The night he came home!",
+  "overview": "Fifteen years after murdering his sister on Halloween Night 1963, Michael Myers escapes from a mental hospital and returns to the small town of Haddonfield, Illinois to kill again.",
+  "year": 1978,
+  "metascore": 87,
+  "MPAArating": "R"
+},
+{
+  "id": 2,
+  "title": "The Lego Movie",
+  "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9klB7qKC9aCeGyyM4uU5hSA6xDV.jpg",
+  "tagline": "The story of a nobody who saved everybody.",
+  "overview": "An ordinary Lego mini-figure, mistakenly thought to be the extraordinary MasterBuilder, is recruited to join a quest to stop an evil Lego tyrant from conquering the universe.",
+  "year": 2014,
+  "metascore": 83,
+  "MPAArating": "PG"
+},
+{
+  "id": 3,
+  "title": "Oppenheimer",
+  "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+  "tagline": "The world forever changes.",
+  "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
+  "year": 2023,
+  "metascore": 88,
+  "MPAArating": "R"
+},
+{
+  "id": 4,
+  "title": "Fight Club",
+  "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+  "tagline": "Mischief. Mayhem. Soap.",
+  "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+  "year": 1999,
+  "metascore": 67,
+  "MPAArating": "R"
+},
+{
+  "id": 5,
+  "title": "John Wick",
+  "poster": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
+  "tagline": "Don't set him off.",
+  "overview": "Ex-hitman John Wick comes out of retirement to track down the gangsters that took everything from him.",
+  "year": 2014,
+  "metascore": 68,
+  "MPAArating": "R"
+}]}
