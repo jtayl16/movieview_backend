@@ -4,38 +4,6 @@ const path = require('path');
 
 // Server is deployed to Render, so cannot use hardcoded port
 const PORT = process.env.PORT;
-// Client instance for MongoDB query
-const {MongoClient} = require('mongodb')
-
-async function getData(client){    // Retrieve data, convert data => array => JSON
-    const cursor = client.db("movies").collection("moviedetails").find({});
-    const results = await cursor.toArray();
-    //const js = JSON.stringify(results);
-    return results;
-}
-
-async function main(){
-    /**
-     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-     */
-    // In a normal scenario, URI should be hidden; for simplicity, it is visible
-    const uri = "mongodb+srv://jtayl:Drowssap1@cluster0.z25ivv7.mongodb.net/?retryWrites=true&w=majority";
-    const client = new MongoClient(uri);
-    let mongo_json;
-
-    try {
-        // Connect to the MongoDB cluster
-        await client.connect();
-        mongo_json = await getData(client);
-        // Make the appropriate DB calls
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-    return mongo_json;
-}
 
 http.createServer((req,res) => {
     console.log(req.url);
@@ -54,14 +22,10 @@ http.createServer((req,res) => {
         })
     }
     else if(req.url === '/api') {
-        // Get JSON from async MongoDB query
-        // getting closer; current result is unformatted and can't be read by VueJS
-        main().then(ct => {
-            let content = JSON.parse(ct);
+        fs.readFile(path.join(__dirname, 'public', 'db.json'), (err,content)=>{
+            if(err) throw err;
             res.writeHead(200, {'Content-Type':'application/json'})
-            res.end(content)
-        }, (error) => {
-            console.log(error);
+            res.end(content);
         })
     }
     else {

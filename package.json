@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "mongodb": "^6.3.0"
-  },
   "engines": {
     "node": ">=16.20.1"
   }
