@@ -1,0 +1,138 @@
+/*
+CSCI-6655-01 - Web-Database Application Development
+Johnell Taylor
+Assignment 03: CSS Grid
+*/
+:root { /* color variables */
+    /* palette used: https://coolors.co/palette/fffcf2-ccc5b9-403d39-252422-eb5e28 */
+    --head-foot-bg: #EB5E28;
+    --intro-bg: #CCC5B9;
+    --body-bg: #FFFCF2;
+    --body-bg-dark: #403D39;
+    --body-bg-darker: #252422;
+}
+body {
+    position: relative;
+    height: 100%;
+    margin: 0%;
+}
+a {
+    color: var(--body-bg);
+}
+
+/* define CSS grid within #container */
+#container {
+    background: var(--body-bg);
+    height: 100%;
+    display: grid;
+    gap: 0.2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3em 0.7fr 100vh 3em;
+    grid-template-areas:
+    "header header"
+    "intro intro"
+    "projects exp"
+    "footer footer"
+    ;
+}
+
+/* assign grid areas to tags */
+header {
+    grid-area: header;
+}
+footer {
+    grid-area: footer;
+}
+#intro {
+    grid-area: intro;
+    display: flex;
+}
+#projects {
+    grid-area: projects;
+}
+#exp {
+    grid-area: exp;
+}
+
+/* additional CSS styling */
+header, footer {
+    background-color: var(--head-foot-bg);
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    text-align: center;
+    word-spacing: 100px;
+    font-size: large;
+}
+footer { /* footer positioned absolutely to body, so it stays at bottom of page */
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+#intro, #me, #aboutme, #edu, #blog {
+    background-color: var(--intro-bg);
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+#me {
+    display: inline;
+    float: left;
+}
+.blog {
+    background-color: var(--body-bg);
+    padding: 1%;
+    margin: 5px;
+}
+.blog img {
+    display: block;
+    float: left;
+    padding-right: 5px;
+    height: 50px;
+    width: 50px;
+}
+#projects, #exp {
+    padding: 5%;
+}
+#projectdisplay, #expdisplay {
+    display: flex;
+    height: 90%;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: auto;
+}
+.project, .job {
+    width: 45%;
+    display: inline-block;
+    background-color: var(--intro-bg);
+}
+.project img, .job img {
+    width: 100%;
+}
+
+/* adapt to small screens ( <= 500 px ) */
+@media only screen and (max-width: 500px) {
+    #container {
+        background: var(--body-bg);
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas:
+        "header"
+        "intro"
+        "projects"
+        "exp"
+        "footer"
+        ;
+    }
+    #me {
+        display: none;
+    }
+    #projectdisplay, #expdisplay {
+        display: flex;
+        height: 85%;
+        flex-wrap: wrap;
+        overflow-y: auto;
+    }
+}

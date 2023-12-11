@@ -3,105 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel = "stylesheet" href="style.css"> -->
-    <title>Personal Website</title>
-    <style>
-        :root {
-            --main-radius: 5px;
-            --main--padding: 5px;
-            --blue: #1e90ff;
-            --white: #ffffff;
-            --yellowish: #F7c600;
-            --morebluish: #52489c;
-        }
-
-        .container {
-            color: var(--white);
-            display: grid;
-            height: 100vh;
-            grid-gap: 0rem;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 0.2fr 1.5fr 1.2fr 1.2fr;
-            grid-template-areas:
-            "nav nav nav nav"
-            "sidebar main main main"
-            "sidebar content1 content2 content3"
-            "sidebar footer footer footer"
-            ;
-        }
-
-        nav {
-            background: var(--morebluish);
-            grid-area: nav;
-        }
-
-        #sidebar {
-            background: lightblue;
-            grid-area: sidebar;
-        }
-
-        main {
-            background: var(--blue);
-            grid-area: main;
-        }
-
-        #content1 {
-            background: var(--yellowish);
-            grid-area: content1;    
-        }
-        #content2 {
-            background: var(--yellowish);
-            grid-area: content2;   
-        }
-        #content3 {
-            background: var(--yellowish);
-            grid-area: content3;   
-        }
-        #footer {
-            background: pink;
-            grid-area: footer;
-        }
-
-        /* make page responsive to changes in screen size using @media tag*/
-        @media only screen and (max-width: 500px) {
-            .container {
-                grid-template-areas: 
-                "nav"
-                "main"
-                "content1"
-                "content2"
-                "content3"
-                "footer"
-                ;
-                grid-template-columns: 1fr;
-                grid-template-rows: 0.2fr 1.5fr 1fr 1fr 1fr 1fr;
-            }
-            #sidebar {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Personal Site - Johnell Taylor</title>
 </head>
 <body>
-    <div class="container">
-        <nav>
+    <div id="container">
+        <header>
             <a href="#education">📚Education</a>
             <a href="#blogs">✏️Blogs</a>
             <a href="#projects">🖌️Projects</a>
             <a href="#experience">💼Experience</a>
-        </nav>
+        </header>
 
-        <div id="sidebar"> Sidebar </div>
-        <main>
+        <div id="intro">
             <div id="me">
-                <img style="width:20%;" src="http://cliparts.co/cliparts/yik/Ady/yikAdyk6T.png">
+                <img style="width:70%;" src="http://cliparts.co/cliparts/yik/Ady/yikAdyk6T.png">
             </div>
             <div id="aboutme">
                 <h1><b>Johnell Taylor</b></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis facilis mollitia ipsam nulla aspernatur nihil, animi ad illum impedit eos quod possimus nam consequatur, sapiente cupiditate maiores maxime assumenda ullam.</p>
+                <p>Welcome to my personal site!</p>
+                <p>This site was created using CSS-grid, a grid-based layout system that allows for the use of columns and rows for HTML styling.</p>
+                <p>If you would like, please contact me with the links in the footer.</p>
+                <p>Have a good day!</p>
             </div>
-        </main>
-        <div id="content1">
+
             <div id="edu">
                 <h2><b>Education</b></h2>
                 <img style="width: 35%" src="https://www.carolina.com/images/product/large/university_new_haven_logo.jpg">
@@ -111,51 +36,113 @@
                     <li>University of New Haven version 3</li>
                 </ul>
             </div>
-        </div>
-        <div id="content2">
+
             <div id="blogs">
                 <h2>Blogs</h2>
-                <img style="width: 35%" src="https://fashion.luxury/wp-content/uploads/2017/11/Our-Enduring-Love-of-Pen-and-Paper-feature-1024x581.jpg">                
+                <img style="width: 35%" src="https://fashion.luxury/wp-content/uploads/2017/11/Our-Enduring-Love-of-Pen-and-Paper-feature-1024x581.jpg">
+                
+                
                 <ul>
                     <li>
                         <div class="blog">
-                            <img style="width: 35%" src="http://writingfulltilt.zbrustudios.com/wp-content/uploads/2012/11/IMG_2616.jpg">
+                            <img src="http://writingfulltilt.zbrustudios.com/wp-content/uploads/2012/11/IMG_2616.jpg">
                             <p>First blog!</p>
                         </div>
                     </li>
                     <li>
                         <div class="blog">
-                            <img style="width: 35%" src="http://writingfulltilt.zbrustudios.com/wp-content/uploads/2012/11/IMG_2616.jpg">
+                            <img src="http://writingfulltilt.zbrustudios.com/wp-content/uploads/2012/11/IMG_2616.jpg">
                             <p>Second blog!</p>
                         </div>
                     </li>
                 </ul>
+
             </div>
         </div>
-        <div id="content3">
-            <div id="projects">
-                <h2 style="text-align: center;"><b>Projects</b></h2>
-                <div id="projectdisplay">
-                    <div class="project">
-                        <img style="width: 35%" src="https://ask4files.com/wp-content/uploads/2020/03/How-do-I-create-a-Computer-program.jpg">
-                        <h3><b>Project 1</b></h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis iste sapiente saepe nobis eveniet, quo, inventore, excepturi alias minus amet voluptatibus sint possimus hic earum fugiat dolorum? Consequatur, doloremque vel?</p>
-                    </div>
-                    <div class="project">
-                        <img style="width: 35%" src="https://www.onlineschoolsreport.com/wp-content/uploads/2019/09/OSR-Bachelor-ComputerProgramming.jpg">
-                        <h3><b>Project 2</b></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium odit neque cupiditate atque provident hic labore ea et, ad debitis cum earum incidunt delectus, molestiae non placeat. Praesentium, autem libero?</p>
-                    </div>
+        
+        <div id="projects">
+            <h2 style="text-align: center;"><b>Projects</b></h2>
+            <div id="projectdisplay">
+                <div class="project">
+                    <img src="https://ask4files.com/wp-content/uploads/2020/03/How-do-I-create-a-Computer-program.jpg">
+                    <h3><b>Project 1</b></h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis iste sapiente saepe nobis eveniet, quo, inventore, excepturi alias minus amet voluptatibus sint possimus hic earum fugiat dolorum? Consequatur, doloremque vel?</p>
+                </div>
+                <div class="project">
+                    <img src="https://www.onlineschoolsreport.com/wp-content/uploads/2019/09/OSR-Bachelor-ComputerProgramming.jpg">
+                    <h3><b>Project 2</b></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium odit neque cupiditate atque provident hic labore ea et, ad debitis cum earum incidunt delectus, molestiae non placeat. Praesentium, autem libero?</p>
+                </div>
+                <div class="project">
+                    <img src="https://static0.makeuseofimages.com/wordpress/wp-content/uploads/2017/01/Web-Programming-Languages-Featured.jpg">
+                    <h3><b>Project 3</b></h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque similique doloremque hic magni totam. Quia placeat laborum sequi perferendis. Ipsa quos error iusto inventore vitae blanditiis debitis voluptatum quia ullam.</p>
+                </div>
+                <div class="project">
+                    <img src="https://wallup.net/wp-content/uploads/2017/11/22/407979-programming-programming_language-syntax_highlighting-minified-knowledge-coding-code-HTML-color_codes-CSS-computer-pixels-Computer_screen-logic.jpg">
+                    <h3><b>Project 4</b></h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, debitis iste. Atque, consequatur debitis, ipsam provident corrupti harum voluptatibus totam ab dolor adipisci, nulla autem! Dicta ea hic dolorum libero.</p>
                 </div>
             </div>
         </div>
+        
+        <div id="exp">
+            <h2 style="text-align: center;"><b>Experience</b></h2>
+            <div id="expdisplay">
+                <div class="job">
+                    <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-smiling-businessman-working-on-laptop-computer-at-home-office-male-professional-typing-on-laptop-keyboard-at-office-workplace-portrait-of-positive-business-man-looking-at-laptop-screen-indoors_bfhjr_5md_thumbnail-1080_01.png">
+                    <ul>
+                        <li><b>Job A</b></li>
+                        <li>Position A</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <img src="https://dealersupport.co.uk/wp-content/uploads/2020/09/iStock-1254062265.jpg">
+                    <ul>
+                        <li><b>Job B</b></li>
+                        <li>Position B</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <img src="https://www.dmpayroll.com/wp-content/uploads/2018/04/man-looking-at-laptop.jpg">
+                    <ul>
+                        <li><b>Job C</b></li>
+                        <li>Position C</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <img src="https://thumbs.dreamstime.com/b/serious-young-man-working-office-day-sitting-front-computer-145776045.jpg">
+                    <ul>
+                        <li><b>Job D</b></li>
+                        <li>Position D</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <img src="https://ak4.picdn.net/shutterstock/videos/32607874/thumb/1.jpg">
+                    <ul>
+                        <li><b>Job E</b></li>
+                        <li>Position E</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Sz9LmzxmBjyscquj0/videoblocks-serious-young-businessman-working-on-computer-indoors_svzmrk3wp_thumbnail-1080_01.png">
+                    <ul>
+                        <li><b>Job F</b></li>
+                        <li>Position F</li>
+                    </ul>
+                </div>
+                
+                
 
-        <div id="footer">
+
+            </div>
+        </div>
+        
+        <footer>
             <a href="tel:+1234567890">📞Phone</a>
             <a href="mailto:realemail@mailservice.com">✉️Email</a>
             <a href="https://github.com/torvalds">🖥️Github</a>
-        </div>
+        </footer>
     </div>
-
 </body>
 </html>
